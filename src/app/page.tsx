@@ -1,17 +1,11 @@
 import Navbar from "@/components/Navbar";
+import Home from "@/components/Home";
 
-export default function Home() {
+export default function Page() {
 	return (
 		<>
 			<Navbar />
-			<section
-				id="home"
-				style={{
-					marginTop: 100,
-				}}
-			>
-				Home
-			</section>
+			<Home />
 			<section id="about">About</section>
 			<section id="skills">Skills</section>
 			<section id="projects">Projects</section>

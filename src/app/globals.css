@@ -1,6 +1,7 @@
 :root {
 	--primary: #d634aa;
 	--background: #00171f;
+	--text-color: #b7b7b7;
 }
 
 html {
@@ -15,6 +16,9 @@ html {
 
 body {
 	margin: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 section {
@@ -23,7 +27,17 @@ section {
 	font-weight: bold;
 	display: flex;
 	justify-content: center;
-	height: 80vh;
+	margin-left: 32px;
+	margin-right: 32px;
+	max-width: calc(min(100vw, 1920px) - 64px);
+}
+
+@media (min-width: 768px) {
+	section {
+		margin-left: 128px;
+		margin-right: 128px;
+		max-width: calc(min(100vw, 1920px) - 128px - 128px);
+	}
 }
 
 ::-webkit-scrollbar {
