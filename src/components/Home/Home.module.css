@@ -13,8 +13,6 @@
 
 .image {
 	margin-bottom: 32px;
-	max-width: 300px;
-	max-height: 300px;
 }
 
 .h1 {
@@ -24,10 +22,41 @@
 	font-weight: 600;
 }
 
+.gradient {
+	background-image: linear-gradient(90deg, #d634aa, #3d4fed);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 .p {
 	font-weight: 500;
 	color: var(--text-color);
+	line-height: 20px;
 	font-size: 12px;
+}
+
+.btn {
+	border: 0px;
+	padding: 8px;
+	padding-left: 24px;
+	padding-right: 24px;
+	font-weight: 600;
+	border-radius: 5px;
+	border: solid white 2px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.projectsButton {
+	background-color: white;
+	color: var(--primary);
+	margin-right: 20px;
+}
+
+.contactMeButton {
+	background-color: transparent;
+	color: white;
 }
 
 @media (min-width: 1024px) {
@@ -39,6 +68,8 @@
 
 	.image {
 		margin-bottom: 0px;
+		min-width: 400px;
+		min-height: 400px;
 	}
 
 	.hero {
@@ -51,6 +82,13 @@
 	}
 
 	.p {
+		font-size: 20px;
+		line-height: 32px;
+	}
+
+	.btn {
+		width: 200px;
+		padding: 12px;
 		font-size: 20px;
 	}
 }

@@ -29,14 +29,14 @@ section {
 	justify-content: center;
 	margin-left: 32px;
 	margin-right: 32px;
-	max-width: calc(min(100vw, 1920px) - 64px);
+	max-width: calc(min(100vw, 1440px) - 64px);
 }
 
 @media (min-width: 768px) {
 	section {
 		margin-left: 128px;
 		margin-right: 128px;
-		max-width: calc(min(100vw, 1920px) - 128px - 128px);
+		max-width: calc(min(100vw, 1440px) - 128px - 128px);
 	}
 }
 
