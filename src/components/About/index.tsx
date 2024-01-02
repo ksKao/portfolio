@@ -28,7 +28,9 @@ export default function About() {
 			animate={animation}
 			className={style.section}
 		>
-			<h1 className={style.h1}>About Me</h1>
+			<motion.h1 variants={item} className={style.h1}>
+				About Me
+			</motion.h1>
 			<div className={style.content}>
 				<motion.div variants={item} className={style.image}>
 					<Image

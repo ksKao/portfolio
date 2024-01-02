@@ -1,0 +1,35 @@
+.section {
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	display: flex;
+	width: 100%;
+	gap: 50px;
+}
+
+.content {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+	padding-left: 0px;
+}
+
+.listItem {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background-color: #6b6574;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (min-width: 1024px) {
+	.content {
+		gap: 80px;
+	}
+}
