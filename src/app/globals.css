@@ -22,14 +22,23 @@ body {
 }
 
 section {
-	scroll-margin-top: 100px;
 	font-size: large;
 	font-weight: bold;
-	display: flex;
-	justify-content: center;
 	margin-left: 32px;
 	margin-right: 32px;
+	width: calc(min(100vw, 1440px) - 64px);
 	max-width: calc(min(100vw, 1440px) - 64px);
+	scroll-margin: 5vh;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+	min-height: 90vh;
+}
+
+h1 {
+	margin: 0px;
+	line-height: 36px;
+	font-size: 24px;
+	font-weight: 600;
 }
 
 @media (min-width: 768px) {
@@ -38,6 +47,15 @@ section {
 		margin-right: 128px;
 		max-width: calc(min(100vw, 1440px) - 128px - 128px);
 	}
+
+	h1 {
+		font-size: 40px;
+		line-height: 52px;
+	}
+	/* 
+	body {
+		margin-top: 100px;
+	} */
 }
 
 ::-webkit-scrollbar {

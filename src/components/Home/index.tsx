@@ -1,31 +1,32 @@
 "use client";
 import Image from "next/image";
 import style from "./Home.module.css";
-import { motion } from "framer-motion";
-
-const container = {
-	hidden: { opacity: 0 },
-	show: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.2,
-		},
-	},
-};
-
-const item = {
-	hidden: { opacity: 0, y: 10 },
-	show: { opacity: 1, y: 0 },
-};
+import { motion, useAnimation, useInView } from "framer-motion";
+import { section, item } from "@/lib/variants";
+import { useRef, useEffect } from "react";
 
 export default function Home() {
+	const ref = useRef<HTMLElement>(null);
+	const isInView = useInView(ref, { once: false });
+	const animation = useAnimation();
+
+	useEffect(() => {
+		console.log(isInView);
+		if (isInView) {
+			animation.start("show");
+		} else {
+			animation.start("hidden");
+		}
+	}, [animation, isInView]);
+
 	return (
 		<motion.section
-			variants={container}
+			variants={section}
 			initial="hidden"
-			animate="show"
+			animate={animation}
 			id="home"
 			className={style.section}
+			ref={ref}
 		>
 			{/* <motion.h1>Home</motion.h1> */}
 			<motion.div variants={item} className={style.image}>
@@ -36,6 +37,7 @@ export default function Home() {
 					height={400}
 					style={{
 						maxWidth: "100%",
+						height: "fit-content",
 						objectFit: "scale-down",
 					}}
 				/>

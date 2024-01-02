@@ -47,6 +47,9 @@ export default function Navbar() {
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll("section"));
 		setSections(sections);
+		const id = sections.sort((a, b) => getVisibleHeightRatio(b) - getVisibleHeightRatio(a))[0]
+			.id;
+		setActiveSection(id);
 	}, []);
 
 	return (
