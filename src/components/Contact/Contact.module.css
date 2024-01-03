@@ -93,6 +93,20 @@
 	width: fit-content;
 }
 
+.loadingIcon {
+	vertical-align: middle;
+	animation: rotate 0.5s linear infinite;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 @media (min-width: 1024px) {
 	.content {
 		flex-direction: row;

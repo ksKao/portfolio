@@ -3,11 +3,15 @@ import style from "./Contact.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { section, item } from "@/lib/variants";
 import { useEffect, useRef } from "react";
-import { IoLocationSharp, IoCallSharp, IoMail } from "react-icons/io5";
 import Image from "next/image";
+import { sendEmail } from "@/actions/sendEmail";
+import toast from "react-hot-toast";
+import { CgSpinner } from "react-icons/cg";
+import { useFormStatus } from "react-dom";
 
-export default function About() {
+export default function Contact() {
 	const ref = useRef<HTMLElement>(null);
+	const formRef = useRef<HTMLFormElement>(null);
 	const isInView = useInView(ref, { once: false });
 	const animation = useAnimation();
 
@@ -45,30 +49,65 @@ export default function About() {
 						}}
 					/>
 				</motion.div>
-				<form className={style.rightContent}>
+				<form
+					ref={formRef}
+					className={style.rightContent}
+					action={async (formData) => {
+						const res = await sendEmail(formData);
+						if (res.success) {
+							toast.success("Email has been sent. I will get back to you shortly.");
+							formRef.current?.reset();
+						} else toast.error(res.error);
+					}}
+				>
 					<motion.div variants={item} className={style.inputGroup}>
-						<label>Name</label>
-						<input type="text" placeholder="e.g. John Smith" />
+						<label htmlFor="name">Name</label>
+						<input
+							type="text"
+							id="name"
+							name="name"
+							required
+							placeholder="e.g. John Smith"
+						/>
 					</motion.div>
 					<motion.div variants={item} className={style.inputGroup}>
-						<label>Email</label>
-						<input type="email" placeholder="e.g. example@email.com" />
+						<label htmlFor="email">Email</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							required
+							placeholder="e.g. example@email.com"
+						/>
 					</motion.div>
 					<motion.div variants={item} className={style.inputGroup}>
-						<label>Message</label>
-						<textarea placeholder="Enter your message here..." />
+						<label htmlFor="message">Message</label>
+						<textarea
+							id="message"
+							name="message"
+							required
+							placeholder="Enter your message here..."
+						/>
 					</motion.div>
-					<motion.button
-						variants={item}
-						className={style.btn}
-						whileHover={{
-							scale: 1.05,
-						}}
-					>
-						Submit
-					</motion.button>
+					<SubmitButton />
 				</form>
 			</div>
 		</motion.section>
+	);
+}
+
+export function SubmitButton() {
+	const { pending } = useFormStatus();
+	return (
+		<motion.button
+			variants={item}
+			className={style.btn}
+			whileHover={{
+				scale: 1.05,
+			}}
+			aria-disabled={pending}
+		>
+			{pending ? <CgSpinner className={style.loadingIcon} /> : "Submit"}
+		</motion.button>
 	);
 }
