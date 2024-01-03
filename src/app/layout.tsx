@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
 	title: "Kao Kai Siang",
 	description: "Kao Kai Siang's Portfolio",
+	icons: "logo.svg",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

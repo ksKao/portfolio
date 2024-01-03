@@ -29,7 +29,7 @@ export default function Home() {
 		>
 			<motion.div variants={item} className={style.image}>
 				<Image
-					src="/web_analytics.png"
+					src="/images/web_analytics.png"
 					alt="Web Analytics"
 					width={400}
 					height={400}

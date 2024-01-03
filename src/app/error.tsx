@@ -8,7 +8,7 @@ export default function Error() {
 		<div className={style.container}>
 			<div>
 				<Image
-					src={"/error.png"}
+					src={"/images/error.png"}
 					alt="Error"
 					width={400}
 					height={400}

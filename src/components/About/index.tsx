@@ -34,7 +34,7 @@ export default function About() {
 			<div className={style.content}>
 				<motion.div variants={item} className={style.image}>
 					<Image
-						src="/web_development.png"
+						src="/images/web_development.png"
 						alt="Web Development"
 						width={400}
 						height={400}

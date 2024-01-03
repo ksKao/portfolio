@@ -7,7 +7,7 @@ export default function NotFound() {
 		<div className={style.container}>
 			<div>
 				<Image
-					src={"/not_found.png"}
+					src={"/images/not_found.png"}
 					alt="Error"
 					width={400}
 					height={400}
