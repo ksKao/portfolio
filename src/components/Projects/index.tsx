@@ -83,6 +83,25 @@ function ProjectCard({ image, name, description, tags, github, link }: (typeof p
 					className={style.image}
 					unoptimized
 				/>
+				<div className={style.overlay}>
+					<div
+						style={{
+							width: "60%",
+							position: "relative",
+						}}
+					>
+						<Image
+							src={`/project_logos/${image}.png`}
+							alt={`${image} logo`}
+							width={340}
+							height={290}
+							style={{
+								width: "100%",
+								height: "auto",
+							}}
+						/>
+					</div>
+				</div>
 			</div>
 			<div className={style.cardDetail}>
 				<h3>{name}</h3>
