@@ -89,6 +89,8 @@
 	cursor: pointer;
 	margin-top: 10px;
 	color: var(--primary);
+	font-size: large;
+	width: fit-content;
 }
 
 @media (min-width: 1024px) {
