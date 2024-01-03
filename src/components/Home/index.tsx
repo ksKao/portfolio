@@ -27,7 +27,6 @@ export default function Home() {
 			className={style.section}
 			ref={ref}
 		>
-			{/* <motion.h1>Home</motion.h1> */}
 			<motion.div variants={item} className={style.image}>
 				<Image
 					src="/web_analytics.png"
@@ -52,24 +51,28 @@ export default function Home() {
 					Enthusiastic web and game developer merging technology and creativity for
 					unforgettable digital experience
 				</motion.p>
-				<motion.button
-					variants={item}
-					className={`${style.projectsButton} ${style.btn}`}
-					whileHover={{
-						scale: 1.05,
-					}}
-				>
-					Projects
-				</motion.button>
-				<motion.button
-					variants={item}
-					className={`${style.contactMeButton} ${style.btn}`}
-					whileHover={{
-						scale: 1.05,
-					}}
-				>
-					Contact Me
-				</motion.button>
+				<div className={style.buttonWrapper}>
+					<motion.a
+						variants={item}
+						className={`${style.projectsButton} ${style.btn}`}
+						whileHover={{
+							scale: 1.05,
+						}}
+						href="#projects"
+					>
+						Projects
+					</motion.a>
+					<motion.a
+						variants={item}
+						className={`${style.contactMeButton} ${style.btn}`}
+						whileHover={{
+							scale: 1.05,
+						}}
+						href="#contact"
+					>
+						Contact Me
+					</motion.a>
+				</div>
 			</div>
 		</motion.section>
 	);

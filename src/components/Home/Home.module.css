@@ -37,7 +37,13 @@
 	font-size: 12px;
 }
 
+.buttonWrapper {
+	display: flex;
+}
+
 .btn {
+	display: block;
+	text-align: center;
 	border: 0px;
 	padding: 8px;
 	padding-left: 24px;
@@ -47,6 +53,7 @@
 	border: solid white 2px;
 	cursor: pointer;
 	margin-top: 10px;
+	text-decoration: none;
 }
 
 .projectsButton {
@@ -68,7 +75,6 @@
 	.image {
 		margin-bottom: 0px;
 		min-width: 400px;
-		min-height: 400px;
 	}
 
 	.hero {
