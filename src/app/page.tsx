@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Home from "@/components/Home";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
+import Projects from "@/components/Projects";
 
 export default function Page() {
 	return (
@@ -10,7 +11,7 @@ export default function Page() {
 			<Home />
 			<About />
 			<Skills />
-			<section id="projects">Projects</section>
+			<Projects />
 			<section id="contact">Contact</section>
 		</>
 	);

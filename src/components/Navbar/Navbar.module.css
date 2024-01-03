@@ -21,7 +21,7 @@
 	left: 50%;
 	right: 0px;
 	bottom: 0px;
-	z-index: -20;
+	z-index: 50;
 	padding: 16px;
 	border-radius: 50px;
 	animation: 1s ease-out 0s 1 slideInFromLeft;
@@ -36,6 +36,7 @@
 	top: 0px;
 	border-radius: 50px;
 	max-width: 80vw;
+	z-index: 100;
 }
 
 .ul {
@@ -47,6 +48,8 @@
 	padding-left: 20px;
 	padding-right: 20px;
 	font-size: x-small;
+	z-index: 60;
+	position: relative;
 }
 
 .li {

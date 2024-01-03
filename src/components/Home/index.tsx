@@ -11,7 +11,6 @@ export default function Home() {
 	const animation = useAnimation();
 
 	useEffect(() => {
-		console.log(isInView);
 		if (isInView) {
 			animation.start("show");
 		} else {

@@ -66,7 +66,7 @@ export default function Navbar() {
 				}}
 				className={style.nav}
 			>
-				<div style={{ position: "relative" }}>
+				<div style={{ position: "relative", zIndex: 60 }}>
 					<ul className={style.ul}>
 						{sectionTitles.map((title) => (
 							<Link
