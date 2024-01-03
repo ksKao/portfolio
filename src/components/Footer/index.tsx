@@ -13,7 +13,7 @@ export default function Footer() {
 						the latest and greatest in technology.
 					</p>
 					<div className={style.iconsWrapper}>
-						<Link href="mailto:kaokaisiangwork@gmail.com">
+						<Link href="mailto:work@ks-kao.com">
 							<IoMail />
 						</Link>
 						<Link href="/resume.pdf" target="_blank">

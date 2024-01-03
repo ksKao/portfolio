@@ -63,7 +63,7 @@ export default function About() {
 					</motion.p>
 					<motion.p variants={item} className={style.p}>
 						<IoMail className={style.icon} />
-						kaokaisiangwork@gmail.com
+						work@ks-kao.com
 					</motion.p>
 				</div>
 			</div>

@@ -14,7 +14,7 @@ const projects = [
 		tags: ["Svelte", "Firebase", "Daisy UI"],
 		description:
 			"A budgeting application featuring intuitive visualizations to assist users in monitoring and managing their financial expenditures.",
-		link: "https://costcut.vercel.app/",
+		link: "https://costcut.ks-kao.com/",
 		github: "https://github.com/ksKao/costcut",
 	},
 	{
@@ -23,7 +23,7 @@ const projects = [
 		tags: ["T3", "Shadcn", "Supabase"],
 		description:
 			"A student-centric project management app with robust features for seamless management of group assignments.",
-		link: "https://projectile-rose.vercel.app/",
+		link: "https://projectile.ks-kao.com/",
 		github: "https://github.com/ksKao/projectile",
 	},
 	{
