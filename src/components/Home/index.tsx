@@ -48,7 +48,7 @@ export default function Home() {
 					Web and Game Developer
 				</motion.h1>
 				<motion.p variants={item} className={style.p}>
-					Enthusiastic web and game developer merging technology and creativity for
+					Enthusiastic web and game developer merging technology and creativity for an
 					unforgettable digital experience
 				</motion.p>
 				<div className={style.buttonWrapper}>
