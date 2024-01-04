@@ -1,5 +1,5 @@
 .footer {
-	height: 200px;
+	height: fit-content;
 	background-color: #a196a5;
 	max-width: 100%;
 	width: 100%;
@@ -15,6 +15,10 @@
 	max-width: calc(min(100vw, 1440px) - 64px);
 	display: flex;
 	justify-content: space-between;
+}
+
+.contentRight {
+	margin: 20px 40px 20px 40px;
 }
 
 .contentLeft > h4 {
@@ -47,15 +51,18 @@
 
 .contentLeft {
 	flex-direction: column;
-	justify-content: space-between;
-	gap: 8px;
+	justify-content: center;
+	display: flex;
+	margin: 20px 0 20px 0;
 }
 
 .contentRight > ul {
 	list-style: none;
 	padding: 0;
 	display: flex;
-	gap: 36px;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
 }
 
 .contentRight > ul > li > a {
@@ -73,6 +80,9 @@
 		margin-left: 128px;
 		margin-right: 128px;
 		max-width: calc(min(100vw, 1440px) - 128px - 128px);
-		gap: 200px;
+	}
+
+	.contentRight > ul {
+		flex-direction: row;
 	}
 }
