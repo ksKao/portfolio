@@ -5,17 +5,20 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { getContentFromFirebase } from "@/lib/utils";
 
-export default function Page() {
+export default async function Page() {
+	const content = await getContentFromFirebase();
+
 	return (
 		<>
 			<Navbar />
-			<Home />
-			<About />
-			<Skills />
-			<Projects />
-			<Contact />
-			<Footer />
+			<Home {...content} />
+			<About {...content} />
+			<Skills {...content} />
+			<Projects {...content} />
+			<Contact {...content} />
+			<Footer {...content} />
 		</>
 	);
 }

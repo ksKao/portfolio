@@ -1,15 +1,16 @@
 "use client";
-import style from "./Contact.module.css";
-import { motion, useAnimation, useInView } from "framer-motion";
-import { section, item } from "@/lib/variants";
-import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { sendEmail } from "@/actions/sendEmail";
+import type { Content } from "@/lib/type";
+import { item, section } from "@/lib/variants";
+import { motion, useAnimation, useInView } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { useFormStatus } from "react-dom";
 import toast from "react-hot-toast";
 import { CgSpinner } from "react-icons/cg";
-import { useFormStatus } from "react-dom";
+import style from "./Contact.module.css";
 
-export default function Contact() {
+export default function Contact(content: Content) {
 	const ref = useRef<HTMLElement>(null);
 	const formRef = useRef<HTMLFormElement>(null);
 	const isInView = useInView(ref, { once: false });
@@ -38,7 +39,7 @@ export default function Contact() {
 			<div className={style.content}>
 				<motion.div variants={item} className={style.image}>
 					<Image
-						src="/images/landline_phone.png"
+						src={content.contactThumbnailUrl}
 						alt="Web Development"
 						width={400}
 						height={400}

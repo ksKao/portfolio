@@ -1,43 +1,14 @@
 "use client";
-import style from "./Projects.module.css";
-import { motion, useAnimation, useInView } from "framer-motion";
+import type { Content } from "@/lib/type";
 import { item, section } from "@/lib/variants";
-import { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
-import { FaLink, FaGithub } from "react-icons/fa";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { FaGithub, FaLink } from "react-icons/fa";
+import style from "./Projects.module.css";
 
-const projects = [
-	{
-		name: "Costcut",
-		image: "costcut",
-		tags: ["Svelte", "Firebase", "Daisy UI"],
-		description:
-			"A budgeting application featuring intuitive visualizations to assist users in monitoring and managing their financial expenditures.",
-		link: "https://costcut.ks-kao.com/",
-		github: "https://github.com/ksKao/costcut",
-	},
-	{
-		name: "Projectile",
-		image: "projectile",
-		tags: ["T3", "Shadcn", "Supabase"],
-		description:
-			"A student-centric project management app with robust features for seamless management of group assignments.",
-		link: "https://projectile.ks-kao.com/",
-		github: "https://github.com/ksKao/projectile",
-	},
-	{
-		name: "House Hunting",
-		image: "house_hunting",
-		tags: ["C#", "Unity"],
-		description:
-			"A whimsical and engaging first-person game where players hunt furniture in a fantasy world to decorate their houses.",
-		link: "https://onehouseonefish.itch.io/house-hunting",
-		github: "https://github.com/GhostEntity12/HouseHunting",
-	},
-];
-
-export default function About() {
+export default function Projects(content: Content) {
 	const ref = useRef<HTMLElement>(null);
 	const isInView = useInView(ref, { once: false });
 	const animation = useAnimation();
@@ -63,7 +34,7 @@ export default function About() {
 				Projects
 			</motion.h1>
 			<div className={style.content}>
-				{projects.map((p) => (
+				{content.projects.map((p) => (
 					<ProjectCard key={p.name} {...p} />
 				))}
 			</div>
@@ -71,13 +42,13 @@ export default function About() {
 	);
 }
 
-function ProjectCard({ image, name, description, tags, github, link }: (typeof projects)[number]) {
+function ProjectCard(project: Content["projects"][number]) {
 	return (
 		<motion.div className={style.card} variants={item}>
 			<div className={style.imageWrapper}>
 				<Image
-					src={`/mockups/${image}.png`}
-					alt={image}
+					src={project.thumbnailUrl}
+					alt={project.name}
 					width={340}
 					height={290}
 					className={style.image}
@@ -91,8 +62,8 @@ function ProjectCard({ image, name, description, tags, github, link }: (typeof p
 						}}
 					>
 						<Image
-							src={`/project_logos/${image}.png`}
-							alt={`${image} logo`}
+							src={project.logoUrl}
+							alt={`${project.name} Logo`}
 							width={340}
 							height={290}
 							style={{
@@ -104,18 +75,18 @@ function ProjectCard({ image, name, description, tags, github, link }: (typeof p
 				</div>
 			</div>
 			<div className={style.cardDetail}>
-				<h3>{name}</h3>
+				<h3>{project.name}</h3>
 				<ul className={style.tags}>
-					{tags.map((t) => (
-						<li key={t}>{t}</li>
+					{project.technologies.map((s) => (
+						<li key={s}>{s}</li>
 					))}
 				</ul>
-				<p>{description}</p>
+				<p>{project.description}</p>
 				<div className={style.linkContainer}>
-					<Link href={link} rel="noopener noreferrer" target="_blank">
+					<Link href={project.projectUrl} rel="noopener noreferrer" target="_blank">
 						<FaLink />
 					</Link>
-					<Link href={github} rel="noopener noreferrer" target="_blank">
+					<Link href={project.githubUrl} rel="noopener noreferrer" target="_blank">
 						<FaGithub />
 					</Link>
 				</div>

@@ -1,30 +1,16 @@
 "use client";
-import style from "./Skills.module.css";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { Content } from "@/lib/type";
 import { item, section } from "@/lib/variants";
-import { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
+import { Fragment, useEffect, useRef } from "react";
+import { Tooltip } from "react-tooltip";
+import style from "./Skills.module.css";
 
-export default function About() {
+export default function About(content: Content) {
 	const ref = useRef<HTMLElement>(null);
 	const isInView = useInView(ref, { once: false });
 	const animation = useAnimation();
-
-	const icons = [
-		"html",
-		"css",
-		"javascript",
-		"typescript",
-		"react",
-		"nextjs",
-		"svelte",
-		"tailwind",
-		"node_js",
-		"git",
-		"github",
-		"unity",
-		"c_sharp",
-	];
 
 	useEffect(() => {
 		if (isInView) {
@@ -48,30 +34,35 @@ export default function About() {
 			</motion.h1>
 			{isInView && (
 				<ul className={style.content}>
-					{icons.map((icon, index) => (
-						<motion.li
-							key={icon}
-							initial={{
-								opacity: 0,
-								y: 10,
-							}}
-							animate={{
-								opacity: 1,
-								y: 0,
-							}}
-							transition={{
-								duration: 0.1,
-								delay: index * 0.1,
-							}}
-							className={style.listItem}
-						>
-							<Image
-								src={`/dev_icons/${icon}.svg`}
-								alt={icon}
-								width={40}
-								height={40}
-							/>
-						</motion.li>
+					{content.skills.map((skill, index) => (
+						<Fragment key={skill.name}>
+							<motion.li
+								data-tooltip-id={skill.name}
+								data-tooltip-content={skill.name}
+								initial={{
+									opacity: 0,
+									y: 10,
+								}}
+								animate={{
+									opacity: 1,
+									y: 0,
+								}}
+								transition={{
+									duration: 0.1,
+									delay: index * 0.1,
+								}}
+								className={style.listItem}
+							>
+								<Image
+									src={skill.imageUrl}
+									alt={skill.name}
+									width={40}
+									height={40}
+									unoptimized
+								/>
+							</motion.li>
+							<Tooltip id={skill.name} />
+						</Fragment>
 					))}
 				</ul>
 			)}

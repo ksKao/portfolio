@@ -8,7 +8,7 @@ export default function Error() {
 		<div className={style.container}>
 			<div>
 				<Image
-					src={"/images/error.png"}
+					src="https://firebasestorage.googleapis.com/v0/b/portfolio-f437b.firebasestorage.app/o/images%2Ferror.png?alt=media&token=f8125ebf-f4e7-447f-bf2d-3dff7568b1ab"
 					alt="Error"
 					width={400}
 					height={400}

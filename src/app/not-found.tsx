@@ -1,13 +1,16 @@
+import { getContentFromFirebase } from "@/lib/utils";
 import style from "./Error.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function NotFound() {
+export default async function NotFound() {
+	const content = await getContentFromFirebase();
+
 	return (
 		<div className={style.container}>
 			<div>
 				<Image
-					src={"/images/not_found.png"}
+					src={content.notFoundThumbnailUrl}
 					alt="Error"
 					width={400}
 					height={400}

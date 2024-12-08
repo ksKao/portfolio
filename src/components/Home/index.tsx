@@ -4,8 +4,9 @@ import style from "./Home.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { section, item } from "@/lib/variants";
 import { useRef, useEffect } from "react";
+import { Content } from "@/lib/type";
 
-export default function Home() {
+export default function Home(content: Content) {
 	const ref = useRef<HTMLElement>(null);
 	const isInView = useInView(ref, { once: false });
 	const animation = useAnimation();
@@ -29,12 +30,13 @@ export default function Home() {
 		>
 			<motion.div variants={item} className={style.image}>
 				<Image
-					src="/images/web_analytics.png"
-					alt="Web Analytics"
+					src={content.homeThumbnailUrl}
+					alt="Home Thumbnail"
 					width={400}
 					height={400}
 					style={{
 						maxWidth: "100%",
+						width: "auto",
 						height: "fit-content",
 						objectFit: "scale-down",
 					}}
@@ -42,14 +44,13 @@ export default function Home() {
 			</motion.div>
 			<div className={style.hero}>
 				<motion.h1 variants={item} className={style.h1}>
-					I&apos;m Kao Kai Siang
+					{content.title1}
 				</motion.h1>
 				<motion.h1 variants={item} className={`${style.h1} ${style.gradient}`}>
-					Web and Game Developer
+					{content.title2}
 				</motion.h1>
 				<motion.p variants={item} className={style.p}>
-					Enthusiastic web and game developer merging technology and creativity for an
-					unforgettable digital experience
+					{content.subtitle}
 				</motion.p>
 				<div className={style.buttonWrapper}>
 					<motion.a

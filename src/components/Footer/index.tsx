@@ -1,31 +1,26 @@
+import type { Content } from "@/lib/type";
 import Link from "next/link";
+import { IoDocument, IoLogoGithub, IoLogoLinkedin, IoMail } from "react-icons/io5";
 import style from "./Footer.module.css";
-import { IoMail, IoDocument, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 
-export default function Footer() {
+export default function Footer(content: Content) {
 	return (
 		<footer className={style.footer}>
 			<div className={style.content}>
 				<div className={style.contentLeft}>
 					<h4>Kao Kai Siang</h4>
-					<p>
-						I enjoy crafting visually stunning websites and games, staying attuned to
-						the latest and greatest in technology.
-					</p>
+					<p>{content.footer}</p>
 					<div className={style.iconsWrapper}>
-						<Link href="mailto:work@ks-kao.com">
+						<Link href={`mailto:${content.email}`}>
 							<IoMail />
 						</Link>
-						<Link href="/resume.pdf" target="_blank">
+						<Link href={content.resumeUrl} target="_blank">
 							<IoDocument />
 						</Link>
-						<Link href="https://github.com/ksKao" target="_blank">
+						<Link href={content.githubUrl} target="_blank">
 							<IoLogoGithub />
 						</Link>
-						<Link
-							href="https://www.linkedin.com/in/kai-siang-kao-2615a4202/"
-							target="_blank"
-						>
+						<Link href={content.linkedInUrl} target="_blank">
 							<IoLogoLinkedin />
 						</Link>
 					</div>
